@@ -27,7 +27,8 @@ for tentativa in 1..limite_de_tentativa
  hit = numero_secreto == chute.to_i
 
  if hit 
-    puts " voce acertou"
+    puts "voce acertou"
+    puts "parabens!"
     break
  else 
       numero_maior == numero_secreto > chute.to_i
