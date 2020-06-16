@@ -1,54 +1,43 @@
-def jogo_da_adivinhação
-    pust "bem vindo a o jogo da adivinhação"
-    puts "qual e o seu nome"
-    nome1 = gets
-    puts "\n\n\n"
-    puts " vamos comecar o jogo, " + nome1 
+def welcome_to_the_game
+	puts "welcome to the guessing game"
+    puts " what is your name ?"
+    name1 = gets
+    puts "\n\n\n\n"
+    puts "let's begin the game, " + name1
 end
 
-def escolhendo_o_numero 
-    puts "escolhendo um numero de 0 a 10..."
-    numero_secreto = 8
-    puts "numero esculhido, que tal acertar o numero hoje "
+def choosing_secret_number 
+    puts "choossing a secret number from 0 to 200..."
+    secret_number = 175
+    puts "chosen number... how about guessing the number today ? "
 end
 
+welcome_to_the_game
+choosing_secret_number
 
 
-def resposta_para_tentativas
+try_limited = 5
 
-    limite_de_tentativas = 3 
+for attempt in 1..try_limited
+	puts "\n\n\n\n"
+	puts " attempt " + attempt.to_s + " de " + try_limited.to_s
+    puts "chosse a number"
+    kick = gets 
+    puts " did you get it right ? you kicked  " + kick
 
-    for tentativa in 1..limite_de_tentativa
-        puts "\n\n\n"
-        puts "tentativa" + tentativa.to_s " de " + limite_de_tentativa.to_s
-        puts "escolha um numero"
-        chute = gets
-        puts "sera que voce acertou? voce chutou " + chute
-        
-        hit numero_secreto == chute.to_i
+    hit = secret_number == kick.to_i
 
-        if hit 
-            puts "voce acertou"
-            puts "parabens"
+ if hit 
+	puts " you're right"
+	break 
+  else
+	    bigger_number = secret_number > kick.to_i 
+	    if bigger_number 	 
+		   puts " the number secret is higher"
+	    else
+		   puts " the number secret is less"
+		end
+		
+	end
 
-        else
-            if numero_maior
-                numero_maior = numero_secreto > chute.to_i
-                puts " o numero secreto e maior que " + chute
-            else
-                puts " o numero secreto e menor que " + chute
-      
-            end
-
-        end
-    
-    end
-   
-  
 end
-
-
-
-jogo_da_adivinhação
-escolhendo_o_numero
-resposta_para_tentativas
